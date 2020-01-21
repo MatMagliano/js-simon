@@ -3,7 +3,7 @@ alert('Pronto? Memorizza questi numeri')
 //------ VARIABLES --------
 var numRandomArray = [];
 var numFound = [];
-var timing = setTimeout(goPropmt, 10000);
+var timing = setTimeout(goPropmt, 30000);
 
 //    CREATE 5 RANDOM NUMBERS
 
@@ -28,7 +28,7 @@ function goPropmt() {
       numFound.push(userNumbers);
     }
   }
-  console.log(numFound);
+  alert('Avete indovinato i seguenti numeri ' + numFound + ' per un totale di ' + numFound.length + '/5');
 }
 
 
