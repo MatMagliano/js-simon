@@ -1,29 +1,35 @@
-// alert('Hello!')
+alert('Pronto? Memorizza questi numeri')
 
 //------ VARIABLES --------
 var numRandomArray = [];
 var numFound = [];
+var timing = setTimeout(goPropmt, 10000);
 
 //    CREATE 5 RANDOM NUMBERS
 
 while (numRandomArray.length < 5) {
   var numRandom = getRandomNumber(1, 50);
-  numRandomArray.push(numRandom)
-}
-console.log(numRandomArray);
-
-//     USER NUMBERS & CHEK
-var k = 0;
-while (k < 5) {
-  var userNumbers = numbPrompt();
-  k++;
-  console.log(userNumbers);
-  if (inArray(numRandomArray, userNumbers) == true) {
-    numFound.push(userNumbers);
+  var find = inArray(numRandomArray, numRandom);
+  if (find == false) {
+    numRandomArray.push(numRandom)
   }
 }
-console.log(numFound);
+console.log(numRandomArray);
+alert(numRandomArray);
 
+//     USER NUMBERS & CHEK
+function goPropmt() {
+  var k = 0;
+  while (k < 5) {
+    var userNumbers = numbPrompt();
+    k++;
+    console.log(userNumbers);
+    if (inArray(numRandomArray, userNumbers) == true) {
+      numFound.push(userNumbers);
+    }
+  }
+  console.log(numFound);
+}
 
 
 
