@@ -2,6 +2,7 @@
 
 //------ VARIABLES --------
 var numRandomArray = [];
+var numFound = [];
 
 //    CREATE 5 RANDOM NUMBERS
 
@@ -11,9 +12,17 @@ while (numRandomArray.length < 5) {
 }
 console.log(numRandomArray);
 
-//     USER NUMBERS
-var userNumbers = numbPrompt();
-console.log(userNumbers);
+//     USER NUMBERS & CHEK
+var k = 0;
+while (k < 5) {
+  var userNumbers = numbPrompt();
+  k++;
+  console.log(userNumbers);
+  if (inArray(numRandomArray, userNumbers) == true) {
+    numFound.push(userNumbers);
+  }
+}
+console.log(numFound);
 
 
 
@@ -44,4 +53,18 @@ function numbPrompt() {
   var numberEntered = parseInt(prompt('Inserisci un numero da 1 a 50 di quelli che ti ricordi di aver visto'));
   return numberEntered;
 
+}
+
+//       CHECK NUMBER
+
+function inArray(array, element) {
+  var i = 0;
+  var result = false;
+  while (i <= array.length && result == false) {
+    if (array[i] == element) {
+      result = true;
+    }
+    i ++;
+  }
+  return result;
 }
